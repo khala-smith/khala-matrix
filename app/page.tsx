@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function Home() {
   const features = [
     {
@@ -31,12 +33,20 @@ export default function Home() {
           <p className="text-lg font-semibold tracking-[0.14em] text-[var(--brand)]">
             KHALA MATRIX
           </p>
-          <a
-            className="rounded-full border border-[var(--line)] px-5 py-2 text-sm font-semibold transition hover:border-[var(--brand)] hover:text-[var(--brand)]"
-            href="#launch"
-          >
-            Launch Preview
-          </a>
+          <div className="flex items-center gap-3">
+            <a
+              className="rounded-full border border-[var(--line)] px-5 py-2 text-sm font-semibold transition hover:border-[var(--brand)] hover:text-[var(--brand)]"
+              href="#launch"
+            >
+              Launch Preview
+            </a>
+            <Link
+              className="rounded-full bg-[var(--brand)] px-5 py-2 text-sm font-semibold text-[var(--brand-ink)] transition hover:-translate-y-0.5 hover:brightness-110"
+              href="/login"
+            >
+              Log In
+            </Link>
+          </div>
         </nav>
 
         <section className="mb-20 grid gap-10 md:grid-cols-[1.25fr_0.75fr] md:items-end">
@@ -56,12 +66,12 @@ export default function Home() {
               day one.
             </p>
             <div className="fade-up flex flex-wrap gap-4 [animation-delay:0.3s]">
-              <a
+              <Link
                 className="rounded-full bg-[var(--brand)] px-6 py-3 text-sm font-semibold text-[var(--brand-ink)] transition hover:-translate-y-0.5 hover:brightness-110"
-                href="#launch"
+                href="/login"
               >
                 Start Network Setup
-              </a>
+              </Link>
               <a
                 className="rounded-full border border-[var(--line)] px-6 py-3 text-sm font-semibold transition hover:border-[var(--brand)] hover:text-[var(--brand)]"
                 href="#features"
