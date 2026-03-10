@@ -34,6 +34,9 @@ jobs:
       - name: Test
         run: npm test
 
+      - name: Unlock macOS Keychain
+        run: security unlock-keychain -p "${{ secrets.KEYCHAIN_PASSWORD }}" ~/Library/Keychains/login.keychain-db
+
       # 最佳实践 1：配置独立的 Buildx 构建器，彻底隔离 Mac 本地的 keychain
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
