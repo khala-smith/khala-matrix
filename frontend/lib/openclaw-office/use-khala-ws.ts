@@ -18,16 +18,17 @@ export function useKhalaWS(listeners: Record<string, Listener>) {
   });
 
   useEffect(() => {
-    const url = process.env.NEXT_PUBLIC_WS_URL;
+    const url: string | undefined = process.env.NEXT_PUBLIC_WS_URL;
     if (!url) return;
 
+    const wsUrl: string = url;
     let stopped = false;
     let reconnectTimer: ReturnType<typeof setTimeout>;
 
     function connect() {
       if (stopped) return;
 
-      const ws = new WebSocket(url);
+      const ws = new WebSocket(wsUrl);
       wsRef.current = ws;
 
       ws.onmessage = (msg) => {
