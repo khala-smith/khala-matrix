@@ -93,9 +93,7 @@ func (c *OpenClawClient) setStatus(paired PairingStatus, pairingErr string, conn
 	}
 	c.pairingError = pairingErr
 	c.connected = connected
-	if lastErr != "" {
-		c.lastError = lastErr
-	}
+	c.lastError = lastErr
 
 	c.hub.Broadcast(ws.Event{
 		Type: "gateway_status",
