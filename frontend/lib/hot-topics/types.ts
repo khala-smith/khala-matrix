@@ -1,4 +1,13 @@
 export type TopicMaturity = "emerging" | "scaling" | "mainstream";
+export type TopicCategory =
+  | "LLM"
+  | "Computer Vision"
+  | "Robotics"
+  | "NLP"
+  | "AI Infrastructure"
+  | "Data Platforms"
+  | "Agent Systems"
+  | "Policy & Compliance";
 
 export type MarketStat = {
   id: string;
@@ -11,6 +20,7 @@ export type Topic = {
   id: string;
   title: string;
   domain: string;
+  category: TopicCategory;
   summary: string;
   heatScore: number;
   weeklyGrowthPercent: number;
